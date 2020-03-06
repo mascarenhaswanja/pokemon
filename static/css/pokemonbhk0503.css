@@ -15,11 +15,9 @@ h1, h2 {
 }
 
 .vl {
-  height: 500px;
-  border-left: 2px solid;
-  color: red;
+  border-left: 1px dashed;
+  height: 600px;
 }
- 
 
 .row {
   display: flex;
