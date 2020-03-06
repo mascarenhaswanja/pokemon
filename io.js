@@ -10,7 +10,7 @@ const MongoClient = require('mongodb').MongoClient;
 const mongoURL = require('./url');
 
 function writeItems(data, collectionName) {
-    const client = new MongoClient(mongoURL.url, { useNewUrlParser: true });
+    const client = new MongoClient(mongoURL.url, { useNewUrlParser: true,  useUnifiedTopology: true });
     client.connect(function(err) {
         // This will create a `cassettes` collection if one doesn't exist. In
         // general, mongo will create a collection if you reference one that
@@ -18,6 +18,7 @@ function writeItems(data, collectionName) {
         // model that doesn't exist, it will just say 0.
         if (err) {
           console.log('Connection error!');
+          console.log(collectionName);
           throw new Error(err);
         }
         const collection = client.db("test").collection(collectionName);
@@ -32,6 +33,7 @@ function writeItems(data, collectionName) {
 
 function readItem(callback, collectionName) {
     const client = new MongoClient(mongoURL.url, { useNewUrlParser: true });
+    console.log(collectionName);
     client.connect(function(err) {
         if (err) {
           console.log('Connection error!');
