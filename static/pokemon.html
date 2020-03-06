@@ -7,44 +7,37 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous">
     </script>
-    <link rel="stylesheet" href="css/pokemon.css">
-    <script type="text/javascript" src='index.js'></script>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Cabin" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather" />
+    <link rel="stylesheet" href="css/pokemon2.css">
 </head>
 <body>
-	<header>
+	<div id="main-cont">
+		<header>
 			<h1>My collection of Pokemon</h1>
-			<hr>		
-	</header>
-		<main>
-			<div id='outputs'></div>
-				<ul id='pokemons'>
-			
-				</ul>
-				<img id="url" src="img/giantbomb.jpeg" alt="Image Pokemon">
-				<hr>
-				<div id='inputs'>
-				<label for='Name'>Name: 
-					<input type="text" name="Name">
-					<br>
-				</label>
-
-				<label for='Height'>Height(cm) 
-					<input type="text" name="Height"><br>
-
-				<label for='Weight'>Weight(kg) 
-					<input type="text" name="Weight">
-					<br>
-				</label>
-				<label for='ImageUrl'>Image URL 
-					<input type="text" name="ImageURL">
-					<br>
-				</label>
-				<br>
-				<hr>
-				<input type="button" name="Sweet!" value='submit'>			
-			</div>
-		</main>
-	</div>
-
-</body>
+		</header>
+	<main>
+		<div id='outputs'>	
+			<ul id='pokemons'>
+			</ul>
+		</div>
+		<div id='inputs'>
+			<h2>Cought a new one?!</h2>
+			<label for='Name'>Name: </label>
+			<input type="text" name="Name">
+			<br>
+			<label for='Height'>Height(cm) </label> 
+			<input type="text" name="Height">
+			<br>
+			<label for='Weight'>Weight(kg) </label>
+			<input type="text" name="Weight">
+			<br>	
+			<label for='ImageUrl'>Image URL</label>
+			<input type="text" name="ImageURL">
+		</div>	
+		<input type="button" name="Sweet!" value='submit'>
+		</div>
+	</main>
+  </body>
+  <script type="text/javascript" src='index.js'></script>
 </html>

@@ -23,7 +23,7 @@ function writeData(req, res, next) {
 		//WOM console.log('Err: writeData ');
 		next(err);
 	}
-	res.redirect('/index.html')
+	res.redirect('/pokemon.html')
 }
 
 // WOM change api NAME
@@ -31,7 +31,7 @@ app.post('/api/pokemons', writeData)
 
 
 app.get('/', function(req, res) {
-    res.redirect('/index.html')
+    res.redirect('/pokemon.html')
 })
 
 
