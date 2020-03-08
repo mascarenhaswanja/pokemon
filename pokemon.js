@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoIO = require('./io.js');
-const mongoDB = require('mongodb');
+//const mongoDB = require('mongodb');
 
 const collectionName = 'pokemons';
 const app = express();
@@ -15,9 +15,6 @@ app.use(
 	express.static(staticPath)
 );
 
-app.get('/', function(req, res) {
-    res.redirect('/index.html');
-});
 
 function writeData(req, res, next) {
 	try {
@@ -28,23 +25,24 @@ function writeData(req, res, next) {
 		//WOM console.log('Err: writeData ');
 		next(err);
 	}
-	res.redirect('/pokemon.html')
+	res.redirect('/index.html')
 }
 
 // WOM change api NAME
 app.post('/api/pokemons', writeData)
 
 
-/*app.get('/', function(req, res) {
-    res.redirect('/pokemon.html')
-}) */
+
+ app.get('/', function(req, res) {
+    res.redirect('/index.html')
+}) 
 
 
 function readData(req, res, next) {
 	function sendDataCallback(err, data) {
 		if (err) {
             console.log('ouch');
-            console.log(err);
+            next(err);
 		}  else  {
 		res.json(data);
 		}
