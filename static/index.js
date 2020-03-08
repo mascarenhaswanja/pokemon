@@ -41,7 +41,7 @@ $(document).ready(function (){
 	button.on('click', writeData)
 	
 	function writeData() {
-		console.log("Test write");
+		//console.log("Test write");
 		var nameField = $("input[name='Name']");
 		var heightField = $("input[name='Height']");
 		var weightField = $("input[name='Weight']");
@@ -55,7 +55,6 @@ $(document).ready(function (){
 
 		$.post('/api/pokemons', data).done(
 			function (data, status, req) {
-// WOM  - delete console.log
  			console.log('Create a new line in DB');
 			updatePage(data);
 			nameField.val('');

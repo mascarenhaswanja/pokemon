@@ -9,6 +9,9 @@ CRUD: Create Read Update Delete
 const MongoClient = require('mongodb').MongoClient;
 const mongoURL = require('./url');
 
+/*const db = "test";
+const collectionName = "pokemons"; */
+
 function writeItems(data, collectionName) {
     const client = new MongoClient(mongoURL.url, { useNewUrlParser: true,  useUnifiedTopology: true });
     client.connect(function(err) {
@@ -18,7 +21,6 @@ function writeItems(data, collectionName) {
         // model that doesn't exist, it will just say 0.
         if (err) {
           console.log('Connection error!');
-          console.log(collectionName);
           throw new Error(err);
         }
         const collection = client.db("test").collection(collectionName);
