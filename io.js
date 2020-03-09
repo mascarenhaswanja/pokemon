@@ -9,11 +9,8 @@ CRUD: Create Read Update Delete
 const MongoClient = require('mongodb').MongoClient;
 const mongoURL = require('./url');
 
-/*const db = "test";
-const collectionName = "pokemons"; */
-
 function writeItems(data, collectionName) {
-    const client = new MongoClient(mongoURL.url, { useNewUrlParser: true,  useUnifiedTopology: true });
+    const client = new MongoClient(mongoURL.url, { useNewUrlParser: true });
     client.connect(function(err) {
         // This will create a `cassettes` collection if one doesn't exist. In
         // general, mongo will create a collection if you reference one that
@@ -35,7 +32,6 @@ function writeItems(data, collectionName) {
 
 function readItem(callback, collectionName) {
     const client = new MongoClient(mongoURL.url, { useNewUrlParser: true });
-    console.log(collectionName);
     client.connect(function(err) {
         if (err) {
           console.log('Connection error!');
