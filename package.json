@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node pokemon.js",
-    "devstart": "nodemon pokemon.js",
+    "devstart": "nodemon pokemon.js"
   },
   "author": "Wanja",
   "license": "ISC",
