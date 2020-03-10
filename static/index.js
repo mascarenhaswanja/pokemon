@@ -52,6 +52,7 @@ $(document).ready(function (){
 			urlField.val('');			
 		}
 		).fail(function (req, status, err) {
+			console.log(err);
 			alert('Erro - writeData - new line');
 		})		
 	}
