@@ -21,9 +21,9 @@ app.get('/', function(req, res) {
 
 function writeData(req, res, next) {
 	try {
-		// console.log(req.body)
+		 console.log(req.body)
 		 mongoIO.writeItems(req.body, collectionName);
-		 res.send(req.body);	
+		 res.send(req.body);	 
 	} catch (err) {
 		 next(err);
 	}
@@ -39,7 +39,7 @@ function readData(req, res, next) {
         } else {
             console.log('ouch');
             console.log(err);
-            next(err)
+            next(err)  
         }
 	}
 
@@ -49,7 +49,6 @@ function readData(req, res, next) {
 app.get('/api/pokemons', readData);
 
 //app.listen(port, function() {console.log(`Final exam app listening on port ${port}!`)})
-
 
 
 var server = app.listen(process.env.PORT || 3000, function () {

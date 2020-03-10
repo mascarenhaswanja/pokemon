@@ -10,14 +10,14 @@ const MongoClient = require('mongodb').MongoClient;
 const mongoURL = require('./url');
 
 function writeItems(data, collectionName) {
-    const client = new MongoClient(mongoURL.url, { useNewUrlParser: true });
+    const client = new MongoClient(mongoURL.url, { useNewUrlParser: true, useUnifiedTopology: true });
     client.connect(function(err) {
-        // This will create a `cassettes` collection if one doesn't exist. In
+        // This will create a `pokemons` collection if one doesn't exist. In
         // general, mongo will create a collection if you reference one that
         // doesn't yet exist. Likewise, if you ask for the quantity of a
         // model that doesn't exist, it will just say 0.
         if (err) {
-          console.log('Connection error!');
+          console.log('Connection error! (writeItems)');
           throw new Error(err);
         }
         const collection = client.db("test").collection(collectionName);
@@ -31,10 +31,10 @@ function writeItems(data, collectionName) {
 }
 
 function readItem(callback, collectionName) {
-    const client = new MongoClient(mongoURL.url, { useNewUrlParser: true });
+    const client = new MongoClient(mongoURL.url, { useNewUrlParser: true, useUnifiedTopology: true });
     client.connect(function(err) {
         if (err) {
-          console.log('Connection error!');
+          console.log('Connection error! (readItem)');
           throw new Error(err);
         }
         const collection = client.db("test").collection(collectionName);
@@ -43,7 +43,7 @@ function readItem(callback, collectionName) {
 }
 
 function deleteItem(item, collectionName) {
-  const client = new MongoClient(mongoURL.url, { useNewUrlParser: true });
+  const client = new MongoClient(mongoURL.url, { useNewUrlParser: true, useUnifiedTopology: true });
   client.connect(function(err) {
     const collection = client.db("test").collection(collectionName);
     collection.deleteOne(item, function(err, r){
