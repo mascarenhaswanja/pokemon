@@ -4,7 +4,7 @@ const mongoIO = require('./io.js');
 
 const collectionName = 'pokemons';
 const app = express();
-const port = process.env.PORT || 3000;
+//const port = process.env.PORT || 3000;
 
 var staticPath = 'static';	
 app.use(
@@ -48,4 +48,11 @@ function readData(req, res, next) {
 
 app.get('/api/pokemons', readData);
 
-app.listen(port, function() {console.log(`Final exam app listening on port ${port}!`)})
+//app.listen(port, function() {console.log(`Final exam app listening on port ${port}!`)})
+
+
+
+var server = app.listen(process.env.PORT || 3000, function () {
+  var port = server.address().port;
+  console.log("Express is working on port " + port);
+});
